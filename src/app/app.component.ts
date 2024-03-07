@@ -2,11 +2,14 @@ import { Component, OnInit} from '@angular/core';
 import { FaceSnapListComponent } from './face-snap-list/face-snap-list.component';
 import { HeaderComponent } from './header/header.component';
 import { RouterLink, RouterOutlet } from '@angular/router';
-import { delay, map, mergeMap, take, tap, concatMap, exhaustMap, switchMap, takeUntil } from 'rxjs/operators';
+import { delay, map, mergeMap, take, tap, concatMap, exhaustMap, switchMap, takeUntil, subscribeOn } from 'rxjs/operators';
 import { AsyncPipe } from '@angular/common';
 import { interval, of } from 'rxjs';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { subscribe } from 'diagnostics_channel';
+import { NewFaceSnapComponent } from './new-face-snap/new-face-snap.component';
 
-//import { pipeline } from 'stream/promises';
+
 
 @Component({
   selector: 'app-root',
@@ -16,7 +19,10 @@ import { interval, of } from 'rxjs';
     HeaderComponent,
     RouterOutlet,
     RouterLink,
-    AsyncPipe
+    AsyncPipe,
+    FormsModule,
+    ReactiveFormsModule,
+    NewFaceSnapComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
@@ -30,14 +36,14 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     // initialisation de l'interval ,filter et la destruction
     //this.destroy$ = new Subject<boolean>();
-    interval(1000).pipe(
+     interval(1000).pipe(
       
       take(3),
       map(value => value % 2 === 0 ? 'rouge' : 'jaune'),
       tap(color => console.log(`La lumière s'allume en %c${color}`, `color: ${this.translateColor(color)}`)),
       switchMap(color => this.getTrainObservable$(color)),
       tap(train => console.log(`Train %c${train.color} ${train.trainIndex} arrivé !`, `font-weight: bold; color: ${this.translateColor(train.color)}`)),
-      //takeUntil(this.destroy$)
+      //takeUntil(this.destroy$),
     ).subscribe();
 
     //Simplification d'une vraie implémentation
