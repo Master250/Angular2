@@ -6,9 +6,8 @@ import { delay, map, mergeMap, take, tap, concatMap, exhaustMap, switchMap, take
 import { AsyncPipe } from '@angular/common';
 import { interval, of } from 'rxjs';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { subscribe } from 'diagnostics_channel';
 import { NewFaceSnapComponent } from './new-face-snap/new-face-snap.component';
-import { HttpClientModule } from '@angular/common/http';
+
 
 
 
