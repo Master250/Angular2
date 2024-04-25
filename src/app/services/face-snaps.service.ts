@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { FaceSnap } from '../models/face-snap-model';
 import { HttpClient } from '@angular/common/http';
 import { map, Observable, switchMap } from 'rxjs';
+import { DatePipe } from '@angular/common';
+
 
 // Déclaration d'une class comme étant un service avec le décorateur @Injectable()
 @Injectable({
@@ -55,6 +57,7 @@ getAllFaceSnaps(): Observable<FaceSnap[]> {
   // Ajout d'un nouveau faceSnap
 
   addFaceSnap(formValue: { title: string, description: string, imageUrl: string, location?: string }): Observable<FaceSnap> {
+    
     return this.getAllFaceSnaps().pipe(
       map(faceSnaps => [...faceSnaps].sort((a,b) => a.id - b.id)),
       map(sortedFacesnaps => sortedFacesnaps[sortedFacesnaps.length - 1]),

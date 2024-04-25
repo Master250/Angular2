@@ -4,6 +4,7 @@ import { NgIf, NgStyle, NgClass, DatePipe, UpperCasePipe, TitleCasePipe } from '
 import { FaceSnapsService } from '../services/face-snaps.service';
 import { Router } from '@angular/router';
 
+
 //Cette classe est déclarée avec un décorateur  @Component  à qui on passe un objet de configuration avec un sélecteur, un fichier de template et un fichier de styles.
 @Component({
   selector: 'app-face-snap',
@@ -13,7 +14,7 @@ import { Router } from '@angular/router';
   styleUrl: './face-snap.component.scss'
 })
 
-export class FaceSnapComponent implements OnInit{
+export class FaceSnapComponent implements OnInit {
   // injection des inputs depuis les models
   @Input() faceSnap!: FaceSnap;
 
@@ -45,3 +46,6 @@ export class FaceSnapComponent implements OnInit{
   }
 
 }
+
+
+  

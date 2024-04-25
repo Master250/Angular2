@@ -3,7 +3,7 @@ import { FaceSnapListComponent } from './face-snap-list/face-snap-list.component
 import { HeaderComponent } from './header/header.component';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { delay, map, mergeMap, take, tap, concatMap, exhaustMap, switchMap, takeUntil, subscribeOn } from 'rxjs/operators';
-import { AsyncPipe } from '@angular/common';
+import { AsyncPipe, DatePipe } from '@angular/common';
 import { interval, of } from 'rxjs';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NewFaceSnapComponent } from './new-face-snap/new-face-snap.component';
@@ -22,7 +22,8 @@ import { NewFaceSnapComponent } from './new-face-snap/new-face-snap.component';
     AsyncPipe,
     FormsModule,
     ReactiveFormsModule,
-    NewFaceSnapComponent
+    NewFaceSnapComponent,
+    DatePipe
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
