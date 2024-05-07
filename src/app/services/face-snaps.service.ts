@@ -17,7 +17,7 @@ export class FaceSnapsService {
   //Injectez HttpClient dans FaceSnapsService en y créant un constructor, comme pour les components
   constructor(private http: HttpClient){}
   // Récupération du model faceSnap et initialisation des attributs du tableau faceSnap
-  faceSnaps: FaceSnap[] = [];
+  //faceSnaps: FaceSnap[] = [];
 // Récupération tous les faceSnap
   // getAllFaceSnaps(): FaceSnap[] {
   //   return this.faceSnaps;
